@@ -1,10 +1,13 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 function CountryPage() {
+    const {code} = useParams();
+
     return (
         <div className='country-page'>
+            <h1>{code}</h1>
             <div className='btn-container'>
                 <button className='btn-previews'><ArrowBackIcon /> Back</button>
             </div>

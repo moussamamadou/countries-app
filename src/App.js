@@ -10,7 +10,7 @@ function App() {
       <div className='App'>
         <Header />
         <Switch>
-          <Route path='/' >
+          <Route path='/' exact >
             <HomePage />
           </Route>
           <Route path='/:code' >

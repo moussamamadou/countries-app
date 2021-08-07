@@ -3,7 +3,7 @@ import NightsStayIcon from '@material-ui/icons/NightsStay';
 import NightsStayOutlinedIcon from '@material-ui/icons/NightsStayOutlined';
 
 
-function Header() {
+function Header({ darkTheme }) {
     return (
         <header> 
            <div className="header-title">Where in the world?</div>
