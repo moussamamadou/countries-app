@@ -1,5 +1,15 @@
-import React from 'react'
+import React from 'react';
+import Select from 'react-select';
 import SearchIcon from '@material-ui/icons/Search';
+
+const options = [
+    {value: 'All', label: 'All'},
+    {value: 'Africa', label: 'Africa'},
+    {value: 'Americas', label: 'Americas'},
+    {value: 'Asia', label: 'Asia'},
+    {value: 'Europe', label: 'Europe'},
+    {value: 'Oceania', label: 'Oceania'},
+];
 
 function Search() {
     return (
@@ -8,14 +18,10 @@ function Search() {
                 <SearchIcon />
                 <input type="text" id="search" name="search" placeholder="Search for a country ..." />            
             </div>
-            <select className="filter-select" name="region" id="region" placeholder="Filter by Region" >
-                <option value="">All</option>
-                <option value="Africa">Africa</option>
-                <option value="Americas">Americas</option>
-                <option value="Asia">Asia</option>
-                <option value="Europe">Europe</option>
-                <option value="Oceania">Oceania</option>
-            </select>      
+            <div className="search-filter">
+        
+                <Select options={options} placeholder="Filter by Region"  />  
+            </div>
         </div>
     )
 }

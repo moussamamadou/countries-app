@@ -4,10 +4,14 @@ import Search from '../components/Search'
 
 function HomePage() {
     return (
-        <>
-            <Search />
-            <CountryThumbnail />
-        </>
+        <main>
+            <div className="container">
+                <Search />
+                <div className="country-list">
+                    <CountryThumbnail />
+                </div>
+            </div>            
+        </main>
     )
 }
 
