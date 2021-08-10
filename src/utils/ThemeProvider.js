@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import {createContext, useEffect, useState} from 'react';
 
-export const ThemeContext = React.createContext(null);
+export const ThemeContext = createContext(null);
 
 export const ThemeProvider = ({children}) => {
 
@@ -24,7 +24,7 @@ export const ThemeProvider = ({children}) => {
     
     return (
         <ThemeContext.Provider value={theme}>
-            <div className={theme.themeDark ? "App dark" : "App light"}>
+            <div className={`App ${theme.themeDark ? "dark" : "light"}`}>    
                 {children}   
             </div>
         </ThemeContext.Provider>
