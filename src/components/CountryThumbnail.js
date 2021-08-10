@@ -1,93 +1,20 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-function CountryThumbnail() {
+function CountryThumbnail({country}) {
     return (     
         <>   
-        
-        <div className="country-thumbnail">
-            <Link to="/fra" className="country-link">
-                <img src="https://restcountries.eu/data/usa.svg " alt="USA" className="thumbnail-image"/>
-                <div className="thumbnail-detail">
-                    <h3 className="thumbnail-title">United States of America</h3>
-                    <p>Population: <span>323,947,000</span> </p>
-                    <p>Region: <span>Americas</span></p>
-                    <p>Capital: <span>Washington, D.C.</span> </p>                    
-                </div>
-            </Link>
-        </div>
-        
-        <div className="country-thumbnail">
-            <Link to="/fra" className="country-link">
-                <img src="https://restcountries.eu/data/usa.svg " alt="USA" className="thumbnail-image"/>
-                <div className="thumbnail-detail">
-                    <h3 className="thumbnail-title">United States of America</h3>
-                    <p>Population: <span>323,947,000</span> </p>
-                    <p>Region: <span>Americas</span></p>
-                    <p>Capital: <span>Washington, D.C.</span> </p>                    
-                </div>
-            </Link>
-        </div>
-        
-        <div className="country-thumbnail">
-            <Link to="/fra" className="country-link">
-                <img src="https://restcountries.eu/data/usa.svg " alt="USA" className="thumbnail-image"/>
-                <div className="thumbnail-detail">
-                    <h3 className="thumbnail-title">United States of America</h3>
-                    <p>Population: <span>323,947,000</span> </p>
-                    <p>Region: <span>Americas</span></p>
-                    <p>Capital: <span>Washington, D.C.</span> </p>                    
-                </div>
-            </Link>
-        </div>
-        
-        <div className="country-thumbnail">
-            <Link to="/fra" className="country-link">
-                <img src="https://restcountries.eu/data/usa.svg " alt="USA" className="thumbnail-image"/>
-                <div className="thumbnail-detail">
-                    <h3 className="thumbnail-title">United States of America</h3>
-                    <p>Population: <span>323,947,000</span> </p>
-                    <p>Region: <span>Americas</span></p>
-                    <p>Capital: <span>Washington, D.C.</span> </p>                    
-                </div>
-            </Link>
-        </div>
-        
-        <div className="country-thumbnail">
-            <Link to="/fra" className="country-link">
-                <img src="https://restcountries.eu/data/usa.svg " alt="USA" className="thumbnail-image"/>
-                <div className="thumbnail-detail">
-                    <h3 className="thumbnail-title">United States of America</h3>
-                    <p>Population: <span>323,947,000</span> </p>
-                    <p>Region: <span>Americas</span></p>
-                    <p>Capital: <span>Washington, D.C.</span> </p>                    
-                </div>
-            </Link>
-        </div>
-        
-        <div className="country-thumbnail">
-            <Link to="/fra" className="country-link">
-                <img src="https://restcountries.eu/data/usa.svg " alt="USA" className="thumbnail-image"/>
-                <div className="thumbnail-detail">
-                    <h3 className="thumbnail-title">United States of America</h3>
-                    <p>Population: <span>323,947,000</span> </p>
-                    <p>Region: <span>Americas</span></p>
-                    <p>Capital: <span>Washington, D.C.</span> </p>                    
-                </div>
-            </Link>
-        </div>
-        
-        <div className="country-thumbnail">
-            <Link to="/fra" className="country-link">
-                <img src="https://restcountries.eu/data/usa.svg " alt="USA" className="thumbnail-image"/>
-                <div className="thumbnail-detail">
-                    <h3 className="thumbnail-title">United States of America</h3>
-                    <p>Population: <span>323,947,000</span> </p>
-                    <p>Region: <span>Americas</span></p>
-                    <p>Capital: <span>Washington, D.C.</span> </p>                    
-                </div>
-            </Link>
-        </div>
+            <div className="country-thumbnail">
+                <Link to={`/${country.code}`} className="country-link">
+                    <img src={`${country.flag}`} alt="USA" className="thumbnail-image"/>
+                    <div className="thumbnail-detail">
+                        <h3 className="thumbnail-title">{country.name}</h3>
+                        <p>Population : <span>{country.population?.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span> </p>
+                        <p>Region : <span>{country.region}</span></p>
+                        <p>Capital : <span>{country.capital}</span> </p>                    
+                    </div>
+                </Link>
+            </div>
         </>
     )
 }

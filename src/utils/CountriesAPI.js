@@ -5,7 +5,7 @@ const getCountryData = async (code = 'all') => {
         if (code === 'all'){
             url = 'https://restcountries.eu/rest/v2/all';
         }else{
-            url = 'https://restcountries.eu/rest/v2/alpha/' + code;
+            url = 'https://restcountries.eu/rest/v2/alpha/' + code.toUpperCase();
         }        
         const data = await fetch(url)
         .then(response => {

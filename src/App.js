@@ -1,5 +1,5 @@
 import './assets/css/App.css';
-import React, {useState, useContext} from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
@@ -7,7 +7,6 @@ import CountryPage from './pages/CountryPage';
 import ThemeProvider from './utils/ThemeProvider';
 
 function App() {
- let theme = null;
   return (
     <ThemeProvider>    
         <Router>
