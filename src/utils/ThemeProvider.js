@@ -24,7 +24,6 @@ export const ThemeProvider = ({children}) => {
     
     return (
         <ThemeContext.Provider value={theme}>
-            {console.log('Inside Theme Provider', theme)}
             <div className={theme.themeDark ? "App dark" : "App light"}>
                 {children}   
             </div>
