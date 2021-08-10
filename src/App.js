@@ -1,27 +1,29 @@
 import './assets/css/App.css';
-import {useState} from 'react';
-import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import React, {useState, useContext} from 'react';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import CountryPage from './pages/CountryPage';
+import ThemeProvider, {ThemeContext} from './utils/ThemeProvider';
 
 function App() {
-  const [darkTheme, setdarkTheme] = useState(true);
-
+  const [darkTheme] = useState(true);
+  const theme = useContext(ThemeContext);
+  console.log("App", theme);
   return (
-    <Router>
-      <div className={darkTheme ? "App dark" : "App light"}>
-        <Header darkTheme={darkTheme}/>
-        <Switch>
-          <Route path='/' exact >
-            <HomePage />
-          </Route>
-          <Route path='/:code' >
-            <CountryPage />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <ThemeProvider>
+      <Router>
+          <Header darkTheme={darkTheme}/>
+          <Switch>
+            <Route path='/' exact >
+              <HomePage />
+            </Route>
+            <Route path='/:code' >
+              <CountryPage />
+            </Route>
+          </Switch>
+      </Router>
+    </ThemeProvider>
   );
 }
 

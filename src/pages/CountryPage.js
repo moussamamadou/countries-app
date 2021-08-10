@@ -1,9 +1,10 @@
 import React from 'react';
-import {Link, useParams} from 'react-router-dom';
+//import {Link, useParams} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 function CountryPage() {
-    const {code} = useParams();
+    //const {code} = useParams();
 
     return (
         <main>

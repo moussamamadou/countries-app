@@ -10,6 +10,24 @@
   --blur-black: rgba(0, 0, 0, 0.056);
   --blur-black--light: rgba(0, 0, 0, 0.029);
   --border-radius: 5px;
+  --bg-transition: background-color 0.2s ease-in;
+  --border-color-transition: border-color 0.2s ease-in;
+  --color-transition: color 0.25s ease-in;
+}
+
+/*** Themes Variables ***/
+.dark {
+  --primary-color: var(--dark-grey);
+  --secondary-color: var(--light-grey);
+  --text-color: var(--white);
+  caret-color: var(--text-color);
+}
+
+.light {
+  --primary-color: var(--white-tint);
+  --secondary-color: var(--white);
+  --text-color: var(--black);
+  caret-color: var(--text-color);
 }
 
 /*** Reset ***/
@@ -34,25 +52,12 @@ img {
   width: 100%;
 }
 
-/*** Themes ***/
-.dark {
-  --primary-color: var(--dark-grey);
-  --secondary-color: var(--light-grey);
-  --text-color: var(--white);
-  caret-color: var(--text-color);
-}
-
-.light {
-  --primary-color: var(--white-tint);
-  --secondary-color: var(--white);
-  --text-color: var(--black);
-  caret-color: var(--text-color);
-}
-
 /*** Main Container ***/
 .App {
   background-color: var(--primary-color);
   color: var(--text-color);
+  -webkit-transition: var(--bg-transition), var(--color-transition);
+  transition: var(--bg-transition), var(--color-transition);
 }
 
 .container {
@@ -68,6 +73,8 @@ header {
   background-color: var(--secondary-color);
   -webkit-box-shadow: 0px 2px 4px var(--blur-black);
           box-shadow: 0px 2px 4px var(--blur-black);
+  -webkit-transition: var(--bg-transition);
+  transition: var(--bg-transition);
 }
 
 header .container {
@@ -95,8 +102,9 @@ header .theme-toggle {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 header .theme-toggle svg {
@@ -107,6 +115,8 @@ header .theme-toggle svg {
 header .theme-toggle span {
   font-weight: 600;
   font-size: 16px;
+  caret-color: transparent;
+  margin: 0 0 0 3px;
 }
 
 header .theme-toggle:hover {
@@ -151,6 +161,8 @@ header, main {
   border-radius: var(--border-radius);
   -webkit-box-shadow: 0px 2px 9px var(--blur-black);
           box-shadow: 0px 2px 9px var(--blur-black);
+  -webkit-transition: var(--bg-transition);
+  transition: var(--bg-transition);
 }
 
 .search-wrapper input {
@@ -195,18 +207,22 @@ header, main {
 .search-wrapper .search-filter div {
   background-color: var(--secondary-color);
   color: var(--text--color);
-  font-size: 18px !important;
-  font-weight: 400 !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  font-size: 18px;
+  font-weight: 400;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   height: 56px;
   border-color: var(--secondary-color);
   border-radius: var(--border-radius);
+  -webkit-transition: var(--bg-transition), var(--border-color-transition);
+  transition: var(--bg-transition), var(--border-color-transition);
 }
 
 .search-wrapper .search-filter div:first-child {
   border-color: var(--secondary-color);
   border-radius: var(--border-radius);
+  -webkit-transition: var(--bg-transition), var(--border-color-transition);
+  transition: var(--bg-transition), var(--border-color-transition);
   width: 200px;
   outline: none;
 }
@@ -242,7 +258,7 @@ header, main {
 }
 
 .search-wrapper .search-filter div span {
-  background-color: var(--secondary-color);
+  background-color: transparent;
 }
 
 .search-wrapper .search-filter div svg {
@@ -427,16 +443,38 @@ header, main {
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 960px) {
   .search-wrapper .search-input {
     width: 100%;
     max-width: 100%;
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 480px) {
   .container {
     padding: 0 56px;
+  }
+  header .header-title {
+    font-size: 14px;
+  }
+  header .theme-toggle svg {
+    width: 17px;
+    height: 17px;
+  }
+  header .theme-toggle span {
+    font-size: 12px;
+  }
+  .search-wrapper input {
+    font-size: 14px;
+  }
+  .search-wrapper .search-filter {
+    width: 100%;
+  }
+  .search-wrapper .search-filter div {
+    font-size: 14px;
+  }
+  .search-wrapper .search-filter div:first-child {
+    width: 100%;
   }
 }
 /*# sourceMappingURL=App.css.map */
