@@ -4,20 +4,19 @@ export const ThemeContext = React.createContext(null);
 
 export const ThemeProvider = ({children}) => {
 
-    const [themeDark, setThemeDark] = useState(true);
+    const [themeDark, setThemeDark] = useState(false);
 
+    // When the app is launch we check is a theme was previously selected and save in local storage
     useEffect(() => {
         if(localStorage.getItem('themeDark')){
-            console.log("First Check for ThemeDark", themeDark);
-            setThemeDark(localStorage.getItem('themeDark'));
+            setThemeDark(JSON.parse(localStorage.getItem('themeDark')));
         }else{
-            console.log("First Check for ThemeDark", themeDark);
-            localStorage.setItem('themeDark', themeDark);
+            localStorage.setItem('themeDark', false);
         }
     }, []);    
 
+    // If theme is updated we save in local storage
     useEffect(() => {
-        console.log("Update for ThemeDark", themeDark);
         localStorage.setItem('themeDark', themeDark);
     }, [themeDark]);
 
@@ -25,7 +24,8 @@ export const ThemeProvider = ({children}) => {
     
     return (
         <ThemeContext.Provider value={theme}>
-            <div className={themeDark ? "App dark" : "App light"}>
+            {console.log('Inside Theme Provider', theme)}
+            <div className={theme.themeDark ? "App dark" : "App light"}>
                 {children}   
             </div>
         </ThemeContext.Provider>

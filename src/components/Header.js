@@ -1,19 +1,26 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import NightsStayIcon from '@material-ui/icons/NightsStay';
 import NightsStayOutlinedIcon from '@material-ui/icons/NightsStayOutlined';
+import {ThemeContext} from '../utils/ThemeProvider';
 
 
 function Header({ darkTheme }) {
-        console.log( "Header", darkTheme);
+       // console.log( "Header", darkTheme);
+    const theme = useContext(ThemeContext);
+
+    const toggleTheme = () => {
+        theme.setThemeDark(!theme.themeDark);
+    }
+
     return (
         <header> 
             <div className="container">
                 <h1 className="header-title">Where in the world ?</h1>
-                <div className="theme-toggle">
-                    {darkTheme ? (
-                        <><NightsStayIcon /> <span> Dark Mode</span></>
+                <div className="theme-toggle" onClick={toggleTheme}>
+                    {theme.themeDark ? (
+                        <><NightsStayIcon /> <span> Light Mode</span></>
                     ) : (
-                        <><NightsStayOutlinedIcon /> <span> Light Mode </span></>
+                        <><NightsStayOutlinedIcon /> <span> Dark Mode </span></>
                     )}
                 </div>
             </div>
