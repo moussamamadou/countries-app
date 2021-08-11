@@ -5,6 +5,7 @@ import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import CountryPage from './pages/CountryPage';
 import ThemeProvider from './utils/ThemeProvider';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
@@ -15,8 +16,11 @@ function App() {
               <Route path='/' exact >
                 <HomePage />
               </Route>
-              <Route path='/:code' >
+              <Route path='/:code' exact >
                 <CountryPage />
+              </Route>              
+              <Route path='*'>
+                <NotFoundPage />
               </Route>
             </Switch>
         </Router>
