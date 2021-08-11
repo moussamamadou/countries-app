@@ -18,9 +18,9 @@ Users should be able to:
 
 ### Screenshot
 - Light Mode
-![](.assets/images/countries-app-screenshot-light.png)
+![](./src/assets/images/countries-app-screenshot-light.png)
 - Dark Mode
-![](.assets/images/countries-app-screenshot-dark.png)
+![](./src/assets/images/countries-app-screenshot-dark.png)
 ### Links
 
 - [Solution URL](https://moussamamadou.github.io/countries-app/)
