@@ -17,13 +17,17 @@ Users should be able to:
 
 
 ### Screenshot
-- Light Mode
+
+  Light Mode
+
 ![](./src/assets/images/countries-app-screenshot-light.png)
-- Dark Mode
+  Dark Mode
+
 ![](./src/assets/images/countries-app-screenshot-dark.PNG)
+
 ### Links
 
-- [Solution URL](https://moussamamadou.github.io/countries-app/)
+- [Solution URL](https://countries-app-moussa.netlify.app/DZA)
 
 ## My process
 
