@@ -11,9 +11,9 @@
   --blur-black : rgba(0, 0, 0, 0.056);
   --blur-black--light : rgba(0, 0, 0, 0.029);
   --border-radius : 5px;
-  --bg-transition: background-color 0.2s ease-in;
-  --border-color-transition: border-color 0.2s ease-in;
-  --color-transition: color 0.25s ease-in;
+  --bg-transition: background-color 0.2s ease-out;
+  --border-color-transition: border-color 0.2s ease-out;
+  --color-transition: color 0.25s ease-out;
 }
 
 /*** Themes Variables ***/
@@ -46,6 +46,8 @@ body{
   font: inherit;  
   vertical-align: baseline; 
   font-family: 'Nunito Sans', sans-serif;
+  min-height: 100vh;
+  background-color: var(--primary-color);
 }
 img{
   width: 100%;
@@ -57,13 +59,19 @@ img{
   background-color: var(--primary-color);
   color: var(--text-color);
   transition: var(--bg-transition), var(--color-transition) ; 
+  min-height: 100vh;
 }
 .container{
   max-width: 1440px;
   margin: auto;
   justify-content: center;
 }
-
+.no-transition *{
+  transition: none!important;
+}
+.no-transition > *{
+  transition: none!important;
+}
 /*** Header ***/
 header{
   background-color: var(--secondary-color);
@@ -79,6 +87,8 @@ header{
     font-weight: 800;
     font-size: 24px;
     margin: 0;
+    color: var(--text-color);
+    text-decoration: none;
 
   }
   .theme-toggle{
@@ -226,6 +236,22 @@ header, main{
  }
   }
 }
+.is-loading {
+  text-align: center;
+  svg{
+    animation: rotation 2s infinite linear;
+    font-size: 100px;
+  }
+}
+
+@keyframes rotation {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(359deg);
+  }
+}
 
 /*** Home Page ***/
 /** Country List **/
@@ -237,6 +263,9 @@ header, main{
   a{
     text-decoration: none;
     color: var(--color);
+    img {
+      min-height: 200px;
+    }
   }
   .country-thumbnail{
     background-color: var(--secondary-color);
@@ -260,20 +289,27 @@ header, main{
     }
   }
 }
+.no-country{
+  text-align: center;
+  font-size: 50px;
+  font-weight: 800;
+  margin-top: 25px;
+}
 
 
 /*** Country Page ***/
 /** Button **/
+
 .btn-container{
   width: 100%;
   margin: 0 0 30px 0;
-  a.btn-previous{
+  button.btn-previous{
     background-color: var(--secondary-color);
     color: var(--text-color);
     box-shadow: 0 0 7px var(--blur-black);
     border-radius: var(--border-radius);
     width: 136px;
-    height: 40px;
+    height: 45px;
     font-size: 16px;
     font-weight: 300;
     text-decoration: none;
@@ -281,6 +317,7 @@ header, main{
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    border: none;
     svg{
       margin: 0 10px 0 0 ;
     }
@@ -324,7 +361,9 @@ header, main{
 
     } 
     .link-list{
-      display: inline-block;      
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;     
     }
     a.country-link{
       background-color: var(--secondary-color);
@@ -333,10 +372,10 @@ header, main{
       border-radius: var(--border-radius);
       padding: 6px 20px;
       font-size: 16px;
-      margin: 0 10px 0 0;
+      margin: 0px;
       font-weight: 300;
       text-decoration: none;
-      cursor: pointer;       
+      cursor: pointer;    
     }
   }
 }
@@ -361,6 +400,7 @@ header, main{
   .container{
     padding: 0 56px;
   }
+
   header{
     .header-title{
       font-size: 14px;
@@ -375,6 +415,7 @@ header, main{
       }
     }
   }
+
   .search-wrapper {
     input{
     font-size: 14px;
@@ -388,6 +429,9 @@ header, main{
         }
       }
     }
+  }
+  .country-wrapper{
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
   
 }

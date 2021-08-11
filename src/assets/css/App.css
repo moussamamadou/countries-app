@@ -10,9 +10,9 @@
   --blur-black: rgba(0, 0, 0, 0.056);
   --blur-black--light: rgba(0, 0, 0, 0.029);
   --border-radius: 5px;
-  --bg-transition: background-color 0.2s ease-in;
-  --border-color-transition: border-color 0.2s ease-in;
-  --color-transition: color 0.25s ease-in;
+  --bg-transition: background-color 0.2s ease-out;
+  --border-color-transition: border-color 0.2s ease-out;
+  --color-transition: color 0.25s ease-out;
 }
 
 /*** Themes Variables ***/
@@ -46,6 +46,8 @@ body {
   font: inherit;
   vertical-align: baseline;
   font-family: 'Nunito Sans', sans-serif;
+  min-height: 100vh;
+  background-color: var(--primary-color);
 }
 
 img {
@@ -58,6 +60,7 @@ img {
   color: var(--text-color);
   -webkit-transition: var(--bg-transition), var(--color-transition);
   transition: var(--bg-transition), var(--color-transition);
+  min-height: 100vh;
 }
 
 .container {
@@ -66,6 +69,16 @@ img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.no-transition * {
+  -webkit-transition: none !important;
+  transition: none !important;
+}
+
+.no-transition > * {
+  -webkit-transition: none !important;
+  transition: none !important;
 }
 
 /*** Header ***/
@@ -93,6 +106,8 @@ header .header-title {
   font-weight: 800;
   font-size: 24px;
   margin: 0;
+  color: var(--text-color);
+  text-decoration: none;
 }
 
 header .theme-toggle {
@@ -298,6 +313,38 @@ header, main {
   margin-top: 10px;
 }
 
+.is-loading {
+  text-align: center;
+}
+
+.is-loading svg {
+  -webkit-animation: rotation 2s infinite linear;
+          animation: rotation 2s infinite linear;
+  font-size: 100px;
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+@keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
 /*** Home Page ***/
 /** Country List **/
 .country-list {
@@ -311,6 +358,10 @@ header, main {
 .country-list a {
   text-decoration: none;
   color: var(--color);
+}
+
+.country-list a img {
+  min-height: 200px;
 }
 
 .country-list .country-thumbnail {
@@ -340,6 +391,13 @@ header, main {
   font-weight: 300;
 }
 
+.no-country {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 800;
+  margin-top: 25px;
+}
+
 /*** Country Page ***/
 /** Button **/
 .btn-container {
@@ -347,14 +405,14 @@ header, main {
   margin: 0 0 30px 0;
 }
 
-.btn-container a.btn-previous {
+.btn-container button.btn-previous {
   background-color: var(--secondary-color);
   color: var(--text-color);
   -webkit-box-shadow: 0 0 7px var(--blur-black);
           box-shadow: 0 0 7px var(--blur-black);
   border-radius: var(--border-radius);
   width: 136px;
-  height: 40px;
+  height: 45px;
   font-size: 16px;
   font-weight: 300;
   text-decoration: none;
@@ -368,9 +426,10 @@ header, main {
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+  border: none;
 }
 
-.btn-container a.btn-previous svg {
+.btn-container button.btn-previous svg {
   margin: 0 10px 0 0;
 }
 
@@ -420,7 +479,12 @@ header, main {
 }
 
 .country-wrapper .country-borders .link-list {
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
 }
 
 .country-wrapper .country-borders a.country-link {
@@ -431,7 +495,7 @@ header, main {
   border-radius: var(--border-radius);
   padding: 6px 20px;
   font-size: 16px;
-  margin: 0 10px 0 0;
+  margin: 0px;
   font-weight: 300;
   text-decoration: none;
   cursor: pointer;
@@ -475,6 +539,10 @@ header, main {
   }
   .search-wrapper .search-filter div:first-child {
     width: 100%;
+  }
+  .country-wrapper {
+    -ms-grid-columns: (minmax(220px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
 }
 /*# sourceMappingURL=App.css.map */

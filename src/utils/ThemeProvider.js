@@ -1,10 +1,11 @@
-import {createContext, useEffect, useState} from 'react';
+import {createContext, useEffect, useState, useRef} from 'react';
 
 export const ThemeContext = createContext(null);
 
 export const ThemeProvider = ({children}) => {
 
     const [themeDark, setThemeDark] = useState(false);
+    const countBfrTrns= useRef(0)
 
     // When the app is launch we check is a theme was previously selected and save in local storage
     useEffect(() => {
@@ -18,8 +19,16 @@ export const ThemeProvider = ({children}) => {
     // If theme is updated we save in local storage
     useEffect(() => {
         localStorage.setItem('themeDark', themeDark);
+        if(countBfrTrns.current === 2 ){
+            transitions();
+        }
+         countBfrTrns.current+=1;
     }, [themeDark]);
 
+    const transitions = () => {
+        let x = document.getElementById('root');
+         x.classList.remove("no-transition");
+    }
     const theme = {themeDark, setThemeDark};
     
     return (

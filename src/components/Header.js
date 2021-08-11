@@ -2,6 +2,7 @@ import React, {useContext} from 'react'
 import NightsStayIcon from '@material-ui/icons/NightsStay';
 import NightsStayOutlinedIcon from '@material-ui/icons/NightsStayOutlined';
 import {ThemeContext} from '../utils/ThemeProvider';
+import {Link} from 'react-router-dom';
 
 
 function Header({ darkTheme }) {
@@ -15,7 +16,7 @@ function Header({ darkTheme }) {
     return (
         <header> 
             <div className="container">
-                <h1 className="header-title">Where in the world ?</h1>
+                <Link to='/' className="header-title">Where in the world ?</Link>
                 <div className="theme-toggle" onClick={toggleTheme}>
                     {theme.themeDark ? (
                         <><NightsStayIcon /> <span> Light Mode</span></>
