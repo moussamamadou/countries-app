@@ -27,7 +27,7 @@ Users should be able to:
 
 ### Links
 
-- [Solution URL](https://countries-app-moussa.netlify.app/DZA)
+- [Solution URL](https://countries-app-moussa.netlify.app/)
 
 ## My process
 
