@@ -20,7 +20,7 @@ Users should be able to:
 - Light Mode
 ![](./src/assets/images/countries-app-screenshot-light.png)
 - Dark Mode
-![](./src/assets/images/countries-app-screenshot-dark.png)
+![](./src/assets/images/countries-app-screenshot-dark.PNG)
 ### Links
 
 - [Solution URL](https://moussamamadou.github.io/countries-app/)
