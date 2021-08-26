@@ -231,6 +231,7 @@ header, main {
   border-radius: var(--border-radius);
   -webkit-transition: var(--bg-transition), var(--border-color-transition);
   transition: var(--bg-transition), var(--border-color-transition);
+  cursor: pointer;
 }
 
 .search-wrapper .search-filter div:first-child {

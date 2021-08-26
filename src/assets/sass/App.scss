@@ -169,6 +169,7 @@ header, main{
       border-color: var(--secondary-color);
       border-radius: var(--border-radius);
       transition: var(--bg-transition),var(--border-color-transition); 
+      cursor: pointer;
       
       &:first-child{
         border-color: var(--secondary-color);
