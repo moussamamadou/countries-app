@@ -3,9 +3,9 @@ const getCountryData = async (code = 'all') => {
     try{
         // If there is no code passed around fetch all else fetch the country with the corresponding code
         if (code === 'all'){
-            url = 'https://restcountries.eu/rest/v2/all';
+            url = 'https://restcountries.eu/rest/v3.1/all';
         }else{
-            url = 'https://restcountries.eu/rest/v2/alpha/' + code.toUpperCase();
+            url = 'https://restcountries.eu/rest/v3.1/alpha/' + code.toUpperCase();
         }        
         const data = await fetch(url)
         .then(response => {
